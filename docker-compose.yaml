@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: always
+    command: 
+      - "redis-server"
+
+  flaskpost:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: flask:latest
+    container_name: postServer
